@@ -1,67 +1,63 @@
-.title {    
-    color: var(--primaryColor);
+.btn_grid_img {
+    border-radius: var(--roundedXLG);
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+}
+.btn_grid_img:hover {
+    transform: scale(1.025);
+}
+.gallery_img {
+    width: 100%;
+    border-radius: var(--roundedXLG);
 }
 
-/* GetCatalogContainer */
-.cat_cont {
-    padding: 0;
-    height: 510px;
-    border: 3px solid var(--darkColor);
-    border-radius: var(--roundedSM) var(--roundedJumbo) var(--roundedSM) var(--roundedJumbo);
-    cursor: pointer;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+/* Get gallery container */
+.btn_grid_img:hover .gallery_props {
+    display: block;
 }
-.cat_cont:hover {
-    border: 3px solid var(--primaryColor);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transform: rotate(-2deg);
+.gallery_caption, .gallery_props {
+    background-color: rgba(26, 26, 26, 0.5);
+    position: absolute;
+    width: 95%;
+    text-align: start;
+    padding: var(--spaceSM);
+    border-radius: var(--roundedLG);
 }
-.cat_body {
-    padding: var(--spaceMD);
+.gallery_caption {
+    bottom: var(--spaceMD);
+    left: var(--spaceMD);
 }
-.title_ext {
-    font-weight: 500;
-    color: var(--darkColor );
-    font-size: var(--textLG);
+.gallery_props {
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
+    top: var(--spaceMD);
+    left: var(--spaceMD);
+    display: none;
 }
-.bio {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3; 
-    min-height: 70px;
-    -webkit-box-orient: vertical;
-    margin-bottom: var(--spaceMD);
-}
-.detail_btn, .add_cart {
-    padding: var(--spaceSM) var(--spaceXMD);
-    border: 2px solid transparent;
+.gallery_caption h4, .gallery_caption p, .gallery_props p {
     color: var(--whiteColor);
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    border-radius: var(--roundedSM) var(--roundedXLG) var(--roundedSM) var(--roundedXLG);
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
-.detail_btn {
-    background: var(--primaryColor);
-    text-decoration: none;
+.gallery_caption h4 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
 }
-.add_cart {
-    background: var(--successBG);
+.gallery_caption p {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
-.detail_btn:hover, .add_cart:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 4.65px 12px;
-}
-.price {
-    color: var(--successBG);
-    font-weight: bold;
-    font-size: var(--textJumbo);
-    margin-left: var(--spaceMD);
-}
-.cat_img {
-    width: 100%;
-    height: 300px;
-    border-radius: var(--roundedSM) var(--roundedJumbo) 0 0;
+.gallery_props p {
+    font-size: var(--textMD);
 }

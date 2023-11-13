@@ -12,7 +12,7 @@ export default function GetNavbar({active}) {
 
     return  <nav className="navbar navbar-expand-lg p-0">
         <div className={style.nav_holder}>
-            <a className="navbar-brand fw-bold text-light" href="/">PetStore</a>
+            <a className="navbar-brand fw-bold text-primary" href="/">Galleries</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

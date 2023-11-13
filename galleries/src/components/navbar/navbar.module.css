@@ -7,11 +7,11 @@
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: var(--spaceMD);
-    background: var(--primaryColor);
+    background: var(--whiteColor);
 }
 .nav_link {
     text-decoration: none;
-    color: var(--whiteColor);
+    color: var(--darkColor);
     cursor: pointer;
     padding-bottom: var(--spaceXSM);
 }
@@ -42,10 +42,10 @@
 }
 .nav_item:hover {
     font-weight: 600;
-    border-top: 2px solid var(--whiteColor);
-
+    border-top: 2px solid var(--primaryColor);
 }
 .active {
-    border-bottom: 2px solid var(--whiteColor);
+    border-bottom: 2px solid var(--primaryColor);
     font-weight: 600;
+    color: var(--primaryColor);
 }
