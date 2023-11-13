@@ -45,7 +45,7 @@ export default function GetAllGallery({ctx}) {
                 {
                     items.map((data, i, idx) => {
                         return (
-                            <GetGalleryContainer key={i} builder={data}/>
+                            <GetGalleryContainer key={i} builder={data} is_detailed={true}/>
                         );
                     })
                 }

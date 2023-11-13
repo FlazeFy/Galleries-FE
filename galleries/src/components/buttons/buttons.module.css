@@ -1,0 +1,25 @@
+.btn_path {
+    border: 0;
+    background: var(--primaryColor);
+    padding: var(--spaceXSM) var(--spaceMD);
+    text-decoration: none;
+    margin-right: var(--spaceXSM);
+    color: var(--whiteColor);
+    border-radius: var(--roundedMD);
+}
+.btn_user {
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+.img_user {
+    width: calc(var(--spaceJumbo) + var(--spaceMD));
+    border-radius: 100%;
+    margin-top: calc(var(--spaceXLG) * -1);
+    height: calc(var(--spaceJumbo) + var(--spaceMD));
+}
+.date_props {
+    color: var(--darkColor);
+    font-weight: 400;
+    font-size: var(--textXMD);
+}
