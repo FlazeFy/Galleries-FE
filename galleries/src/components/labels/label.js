@@ -1,7 +1,7 @@
 // Modules CSS
-import style from './label.module.css'
+import style from './labels.module.css'
 
-export default function GetLable({type, title, desc}) {
+export default function GetLabel({type, title, desc}) {
     if(type == "main_title"){
         return <div className={style.title_holder}>
             <h1 className={style.title_text}>{title}</h1>
