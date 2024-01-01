@@ -1,5 +1,5 @@
 // Modules CSS
-import style from './labels.module.css'
+import style from './label.module.css'
 
 export default function GetLabel({type, title, desc}) {
     if(type == "main_title"){
@@ -7,6 +7,14 @@ export default function GetLabel({type, title, desc}) {
             <h1 className={style.title_text}>{title}</h1>
             <h6 className={style.desc_text}>{desc}</h6>
         </div>
+    } else if(title.trim() != ""){
+        if (type == "input"){
+            return <label className={style.input}>{title}</label>
+        } else if (type == "error"){
+            return <label className={style.error}><FontAwesomeIcon icon={faTriangleExclamation} width="14px"/> {title}</label>
+        } else {
+            return null
+        }
     } else {
         return <></>
     }

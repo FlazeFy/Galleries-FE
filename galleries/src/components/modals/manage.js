@@ -1,6 +1,5 @@
 import React from 'react'
 import modal from './modals.module.css'
-import Axios from "axios"
 
 //Font awesome classicon
 import { library } from "@fortawesome/fontawesome-svg-core"

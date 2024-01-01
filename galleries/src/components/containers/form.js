@@ -1,5 +1,5 @@
 // Components
-import GetLabel from '@/components/labels/labels'
+import GetLabel from '@/components/labels/label'
 import GetDropDownDctDynamic from '../others/dropdown'
 
 export default function GetFormTemplate({type, props}) {

@@ -132,7 +132,8 @@ export default function PostGallery({ctx}) {
             data.append('galleries_url', galUrl);
             data.append('galleries_tag', galTag);
             data.append('galleries_format', galFormat);
-            data.append('is_private', isPrivate);
+            // data.append('is_private', isPrivate);
+            data.append('is_private', 0);
             
             const response = await Axios.post("http://127.0.0.1:1323/api/v1/gallery", data, {
                 headers: {

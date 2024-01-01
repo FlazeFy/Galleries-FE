@@ -1,23 +1,25 @@
-import GetGalleryContainer from '@/components/containers/gallery'
 import React from 'react'
 import { useState, useEffect } from "react"
 
-// Modules
-import { getLocal, storeLocal } from '../../../modules/storages/local'
+// Component
+import { getCleanTitleFromCtx } from '@/modules/helpers/converter'
 
-export default function GetAllGallery({ctx}) {
+// Modules
+import { getLocal } from '@/modules/storages/local'
+
+export default function GetDropDownDctDynamic({elmt, url}) {
     //Initial variable
     const [error, setError] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:1323/api/v1/gallery?page=1`)
+        fetch(url)
         .then(res => res.json())
             .then(
             (result) => {
                 setIsLoaded(true)
-                setItems(result.data.data)        
+                setItems(result.data)        
             },
             (error) => {
                 if(getLocal(ctx + "_sess") !== undefined){
@@ -32,7 +34,7 @@ export default function GetAllGallery({ctx}) {
     },[])
 
     if (error) {
-        return <div>Error: {error.message}</div>
+        return <div><h2>{getCleanTitleFromCtx(ctx)}</h2> Error: {error.message}</div>
     } else if (!isLoaded) {
         return (
             <div>
@@ -41,16 +43,21 @@ export default function GetAllGallery({ctx}) {
         )
     } else {
         return (
-            <div className='row mt-3'> 
-                {
-                    items.map((data, i, idx) => {
-                        return (
-                            <GetGalleryContainer key={i} builder={data} is_detailed={true}/>
-                        );
-                    })
-                }
-            </div>
+            <> 
+                <select
+                    placeholder={elmt.placeholder}
+                    className={elmt.class + " w-100"} 
+                    onChange={elmt.handleChange}
+                >
+                    {
+                        items.map((val, i, index) => {
+                            return (
+                                <option key={i} value={val['dictionary_name']}>{val['dictionary_name']}</option>
+                            );
+                        })
+                    }
+                </select>
+            </>
         )
     }
 }
-  

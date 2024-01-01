@@ -4,6 +4,7 @@
     padding: var(--spaceMD) var(--spaceLG);
     border: none;
     border-radius: var(--roundedSM);
+    margin-right: var(--spaceMD);
 }
 .btn_close_modal {
     background: var(--warningBG) !important;
