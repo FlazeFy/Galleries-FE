@@ -12,6 +12,16 @@
     cursor: pointer;
     position: relative;
 }
+.btn_tag {
+    background: var(--infoBG);
+    border: none;
+    color: var(--whiteColor);
+    font-size: var(--textXMD);
+    padding: var(--spaceXSM) var(--spaceSM);
+    border-radius: var(--roundedMD);
+    margin-bottom: var(--spaceSM);
+    margin-right: var(--spaceSM);
+}
 .img_user {
     width: calc(var(--spaceJumbo) + var(--spaceMD));
     border-radius: 100%;
