@@ -1,11 +1,13 @@
 import GetFormTemplate from '@/components/containers/form'
-import React from 'react'
-import { useState, useEffect } from "react"
 import Axios from 'axios'
+import React, { useEffect, useState } from "react"
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import { v4 } from "uuid"
 
 // Component
 import { getCleanTitleFromCtx } from '../../../modules/helpers/converter'
 import modal from '../../../components/modals/modals.module.css'
+import { storage } from "@/modules/configs/firebase"
 
 //Font awesome classicon
 import { library } from "@fortawesome/fontawesome-svg-core"
@@ -16,7 +18,7 @@ export default function PostGallery({ctx}) {
     //Initial variable
     const [galName, setGalName] = useState("")
     const [galDesc, setGalDesc] = useState("")
-    const [galUrl, setGalUrl] = useState("")
+    const [galUrl, setGalUrl] = useState(null)
     const [galTag, setGalTag] = useState("")
     const [galFormat, setGalFormat] = useState("")
     const [isPrivate, setIsPrivate] = useState("")
@@ -30,6 +32,29 @@ export default function PostGallery({ctx}) {
     const [resMsgAll, setResMsgAll] = useState("")
 
     const builder = [
+        {
+            type: 'upload',
+            class: 'form-control',
+            label: 'Gallery Asset',
+            placeholder: 'Type gallery asset',
+            is_required: true,
+            is_obsecure: false,
+            maxLength: 75,
+            handleChange: (event) => {
+                event = event.target.files[0]
+
+                if (event == null) return;
+                    const imageRef = ref(storage, `${event.name + v4()}`);
+                    uploadBytes(imageRef, event).then((snapshot) => {
+                        getDownloadURL(snapshot.ref).then((url) => {
+                            setGalUrl(url);
+                        }
+                    );
+                });
+            },
+            errorMsg: resMsgGalFormat,
+            // url: galUrl
+        },
         {
             type: 'text',
             class: 'form-control',
@@ -55,19 +80,6 @@ export default function PostGallery({ctx}) {
                 setGalDesc(event.target.value)
             },
             errorMsg: resMsgGalDesc
-        },
-        {
-            type: 'text',
-            class: 'form-control',
-            label: 'Gallery Url',
-            placeholder: 'Type gallery url',
-            is_required: true,
-            is_obsecure: false,
-            maxLength: 36,
-            handleChange: (event) => {
-                setGalUrl(event.target.value)
-            },
-            errorMsg: resMsgGalUrl
         },
         {
             type: 'text',

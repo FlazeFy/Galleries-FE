@@ -2,7 +2,11 @@
 import GetLabel from '@/components/labels/label'
 import GetDropDownDctDynamic from '../others/dropdown'
 
+// Modules
+import GetBreakLine from "../others/breakLine"
+
 export default function GetFormTemplate({type, props}) {
+    
     if (type == "single-line"){
         return (
             <div key={type}>
@@ -25,6 +29,15 @@ export default function GetFormTemplate({type, props}) {
                                 <div className='col-lg-12 col-md-12 col-sm-12 text-start mb-3' key={idx}>
                                     <GetLabel title={elmt.label} type="input"/>
                                     <GetDropDownDctDynamic url={elmt.url} elmt={elmt}/>
+                                    <GetLabel title={elmt.errorMsg} type="error"/>
+                                </div>
+                            )
+                        } else if (elmt.type === 'upload') {
+                            return (
+                                <div className='col-lg-12 col-md-12 col-sm-12 text-start mb-3' key={idx}>
+                                    <GetLabel title={elmt.label} type="input"/>
+                                    <GetBreakLine length={2}/>
+                                    <input className="form-control" type="file" onChange={elmt.handleChange} /> 
                                     <GetLabel title={elmt.errorMsg} type="error"/>
                                 </div>
                             )
